@@ -2,9 +2,22 @@ body{
     background-color: #232323
 }
 
+h1{
+    color: whitesmoke;
+    text-align: center;
+}
+
+#message{
+    color: whitesmoke;
+}
+
 .container{
     width: 600px;
     margin: auto;
+}
+
+#colorDisplay{
+    font-size: 200%;
 }
 
 .square{
@@ -14,4 +27,5 @@ body{
     padding-bottom: 30%;
     background-color: lime;
     margin: 1%;
+    border-radius: 20px;
 }
