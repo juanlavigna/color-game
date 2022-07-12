@@ -8,7 +8,7 @@ h1{
 }
 
 #message{
-    color: whitesmoke;
+    color: #232323;
 }
 
 .centrar{
@@ -33,4 +33,15 @@ h1{
     background-color: lime;
     margin: 1%;
     border-radius: 20px;
+}
+
+#stripe{
+    background-color: whitesmoke;
+    height: 30px;
+    justify-content:center;
+    gap: 100px;
+}
+
+#dificultad{
+    gap: 20px;
 }

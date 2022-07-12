@@ -1,9 +1,26 @@
-let colors = ["rgb(205, 92, 92)", "rgb(128, 128, 0)", "rgb(0, 255, 0)", "rgb(255, 0, 255)", "rgb(0, 255, 255)", "rgb(0, 0, 128)"];
+function randomRGB (){
+    let rand1 = Math.floor(Math.random()*255)
+    let rand2 = Math.floor(Math.random()*255)
+    let rand3 = Math.floor(Math.random()*255)
+    return `rgb(${rand1}, ${rand2}, ${rand3})`
+}
+
+function randomColors(dificultad){
+    let colors = [];
+    for(i=0; i< dificultad; i++){
+        colors.push(randomRGB())
+    }
+    return colors
+}
+let easy = document.querySelector("#easy")
+let hard = document.querySelector("#hard")
+let colors = randomColors(+hard.value);
 let divs = document.querySelectorAll(".container>div");
 let colorDisplay = document.querySelector("#colorDisplay");
 let pickedColor = pickColor();
 let mensaje = document.querySelector("#message");
 let H1 = document.querySelector("h1");
+let nuevosColores = document.querySelector("#stripe>button");
 
 function changeColor (colorGanador) {
     divs.forEach((div) => {
@@ -25,6 +42,7 @@ for(let i = 0; i < divs.length; i++){
             mensaje.textContent = "Correcto!";
             H1.style.color = pickedColor;
             changeColor(pickedColor);
+            nuevosColores.textContent = "Jugar de nuevo!"
         }else{
             tempDiv.style.backgroundColor = "#232323";
             mensaje.textContent = "Volvé a intentarlo";
@@ -33,3 +51,12 @@ for(let i = 0; i < divs.length; i++){
 };
 
 colorDisplay.textContent = pickedColor
+
+
+nuevosColores.addEventListener("click", function (){
+    document.location.reload()
+})
+
+easy.addEventListener("click", function() {
+    
+})
