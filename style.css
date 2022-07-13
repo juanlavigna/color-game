@@ -42,6 +42,14 @@ h1{
     gap: 100px;
 }
 
+.selected {
+    background-color: dimgray;
+}
+
 #dificultad{
     gap: 20px;
+}
+
+.hidden{
+    display: none;
 }
