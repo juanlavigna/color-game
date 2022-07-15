@@ -39,20 +39,32 @@ function pickColor (){
 easy.addEventListener("click", function() {
     easy.classList.add("selected")
     hard.classList.remove("selected")
-    game()
+    colors = randomColors(+easy.value);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor
+    mensaje.textContent = "";
+    H1.style.color = "";
     for(let i = 3; i < divs.length; i++){
         divs[i].classList.add("hidden")
     }
+    game()
+    
 })
 
 hard.addEventListener("click", function() {
+    colors = randomColors(+hard.value);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor
+    mensaje.textContent = ""
     hard.classList.add("selected")
     easy.classList.remove("selected")
-    game()
+    H1.style.color = ""
     for(let i = 3; i < divs.length; i++){
         divs[i].classList.remove("hidden")
     }
+    game()
 })
+
 function game(){
     for(let i = 0; i < divs.length; i++){
         divs[i].style.backgroundColor = colors[i];
@@ -73,8 +85,17 @@ function game(){
 }
 colorDisplay.textContent = pickedColor
 
-
 nuevosColores.addEventListener("click", function (){
-    document.location.reload()
+    colors = randomColors(+hard.value);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor
+    mensaje.textContent = ""
+    hard.classList.add("selected")
+    easy.classList.remove("selected")
+    H1.style.color = ""
+    for(let i = 3; i < divs.length; i++){
+        divs[i].classList.remove("hidden")
+    }
+    game()
 })
 
