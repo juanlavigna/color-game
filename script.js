@@ -7,8 +7,7 @@ const H1 = document.querySelector("h1");
 const nuevosColores = document.querySelector("#stripe>button");
 let colors = randomColors(+hard.value);
 let pickedColor = pickColor();
-
-game()
+let clickedColor
 
 function randomRGB (){
     let rand1 = Math.floor(Math.random()*255)
@@ -37,40 +36,39 @@ function pickColor (){
 }
 
 easy.addEventListener("click", function() {
-    easy.classList.add("selected")
-    hard.classList.remove("selected")
+    easy.classList.add("selected");
+    hard.classList.remove("selected");
     colors = randomColors(+easy.value);
     pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor
+    colorDisplay.textContent = pickedColor;
     mensaje.textContent = "";
     H1.style.color = "";
     for(let i = 3; i < divs.length; i++){
         divs[i].classList.add("hidden")
     }
     game()
-    
 })
 
 hard.addEventListener("click", function() {
     colors = randomColors(+hard.value);
     pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor
-    mensaje.textContent = ""
-    hard.classList.add("selected")
-    easy.classList.remove("selected")
-    H1.style.color = ""
+    colorDisplay.textContent = pickedColor;
+    mensaje.textContent = "";
+    hard.classList.add("selected");
+    easy.classList.remove("selected");
+    H1.style.color = "";
     for(let i = 3; i < divs.length; i++){
         divs[i].classList.remove("hidden")
     }
-    game()
+    game();
 })
 
 function game(){
     for(let i = 0; i < divs.length; i++){
         divs[i].style.backgroundColor = colors[i];
-        let clickedColor = divs[i].style.backgroundColor
         let tempDiv = divs[i]
-        divs[i].addEventListener("click", (e) =>{
+        divs[i].addEventListener("click", function handler() {
+            clickedColor = this.style.backgroundColor
             if(clickedColor == pickedColor){
                 mensaje.textContent = "Correcto!";
                 H1.style.color = pickedColor;
@@ -82,7 +80,8 @@ function game(){
             }
         })
     };
-}
+};
+
 colorDisplay.textContent = pickedColor
 
 nuevosColores.addEventListener("click", function (){
@@ -92,10 +91,11 @@ nuevosColores.addEventListener("click", function (){
     mensaje.textContent = ""
     hard.classList.add("selected")
     easy.classList.remove("selected")
-    H1.style.color = ""
+    H1.style.color = "" 
     for(let i = 3; i < divs.length; i++){
         divs[i].classList.remove("hidden")
     }
     game()
 })
 
+game()
