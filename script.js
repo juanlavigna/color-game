@@ -1,5 +1,6 @@
 const easy = document.querySelector("#easy")
 const hard = document.querySelector("#hard")
+const DIFICULTAD = document.querySelectorAll("#dificultad>button")
 const divs = document.querySelectorAll(".container>div");
 const colorDisplay = document.querySelector("#colorDisplay");
 const mensaje = document.querySelector("#message");
@@ -67,8 +68,8 @@ function game(){
     for(let i = 0; i < divs.length; i++){
         divs[i].style.backgroundColor = colors[i];
         let tempDiv = divs[i]
-        divs[i].addEventListener("click", function handler() {
-            clickedColor = this.style.backgroundColor
+        divs[i].addEventListener("click", function () {
+            clickedColor = this.style.backgroundColor;
             if(clickedColor == pickedColor){
                 mensaje.textContent = "Correcto!";
                 H1.style.color = pickedColor;
